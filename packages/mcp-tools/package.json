@@ -1,0 +1,7 @@
+{
+  "name": "@freeside-score/mcp-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP tool specs for agent-callable score queries. Consumed by ruggy + future Freeside dashboard MCP + third-party agents.",
+  "license": "MIT"
+}

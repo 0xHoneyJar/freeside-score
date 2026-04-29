@@ -1,0 +1,7 @@
+{
+  "name": "@freeside-score/adapters",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Typed clients binding ports/ to specific transports (HTTP, NATS, webhook). One canonical adapter set every TS consumer imports — no consumer rolls their own fetch.",
+  "license": "MIT"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "@freeside-score/protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sealed wire-format schemas for THJ scoring — NATS events, webhook payloads, branded types. Consumers depend on these contracts; impls (score-api, future Rust service) satisfy them.",
+  "license": "MIT"
+}

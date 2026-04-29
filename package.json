@@ -1,0 +1,21 @@
+{
+  "name": "freeside-score",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Keeper of score schemas — NATS events, webhook payloads, IScoreServiceClient port, MCP tool specs, typed adapters. The freeside-* attachment module that worlds + ruggy + score-api impl all depend on.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xHoneyJar/freeside-score.git"
+  },
+  "workspaces": [
+    "packages/protocol",
+    "packages/ports",
+    "packages/mcp-tools",
+    "packages/adapters"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.7.0"
+  }
+}
