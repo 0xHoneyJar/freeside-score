@@ -48,6 +48,22 @@ freeside-score/
 - ⏳ schemas not yet extracted from `loa-freeside` — coordination with Jani required
 - 📜 see `docs/EXTRACTION-MAP.md` for source paths
 - 📋 see `docs/INTEGRATION-PATH.md` for the staged cutover plan
+- 🟡 codified consumer guidance below per ecosystem-health cycle 001 phase 4 (TEND)
+
+## Consumer guidance (extraction-pending · codified cycle 001 phase 4)
+
+**The split**: this repo owns the schema/port surface that consumers depend on; `score-api` owns the runtime that consumers should NOT touch directly. The split is canon. The transition state is what's codified here.
+
+**Today (extraction-pending)** — schemas described above LIVE in `loa-freeside/packages/{core,adapters,shared}/`. This repo exists to reserve the canonical name and document the target shape. Until extraction lands, consumer behavior depends on which half they touch:
+
+| Surface | Today (extraction-pending) | After extraction |
+|---|---|---|
+| **Sealed schemas / typed ports / MCP specs / adapters** (canonical for consumers) | depend on `@loa-freeside/...` packages | swap to `@freeside-score/...` packages |
+| **Hono API runtime** (consumers should NOT touch directly) | `0xHoneyJar/score-api` (separate repo · stable contract surface) | unchanged — `score-api` keeps owning impl |
+
+**Why the split matters**: consumers (worlds, persona-bots, dashboards, third-party agents) should depend on the schema/port surface, not the runtime. The runtime can rotate (Hono → faster framework, NATS topology change) WITHOUT breaking consumers — IF consumers depend only on the typed contract. Today the contract lives in loa-freeside; tomorrow it lives here. Either way, the runtime stays in `score-api` and consumers don't import from it directly.
+
+**Cutover ownership**: Jani (loa-freeside maintainer) is the gating coordinator. The cycle that lands extraction follows `docs/INTEGRATION-PATH.md` — staged cutover plan with version-pinning + back-compat aliases during the window.
 
 ## Family
 
